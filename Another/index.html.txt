@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Personal Story</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>My Personal Story</h1>
+
+        <p>My Photos • My Memories • My Journey</p>
+
+    </header>
+
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About Me</a>
+
+        <a href="#gallery">Photos</a>
+
+        <a href="#history">My History</a>
+
+    </nav>
+
+
+    <section id="home">
+
+        <h2>Welcome to My Personal Website</h2>
+
+        <p>
+            Welcome to my personal website.
+            Here I will share my photos, memories and important moments of my life.
+        </p>
+
+    </section>
+
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>
+            Hello! My name is Dhruv.
+            This website contains some important memories and moments from my life.
+        </p>
+
+    </section>
+
+
+    <section id="gallery">
+
+        <h2>My Photo Gallery</h2>
+
+        <img src="images/photo1.jpg" alt="My Photo">
+
+        <img src="images/photo2.jpg" alt="My Photo">
+
+        <img src="images/photo3.jpg" alt="My Photo">
+
+    </section>
+
+
+    <section id="history">
+
+        <h2>My Life History</h2>
+
+        <h3>2006 — My Birth</h3>
+
+        <p>
+            My life journey started here.
+        </p>
+
+
+        <h3>2022 — SSC</h3>
+
+        <p>
+            I completed an important stage of my education.
+        </p>
+
+
+        <h3>2024 — HSC</h3>
+
+        <p>
+            Another important milestone of my life.
+        </p>
+
+    </section>
+
+
+    <footer>
+
+        <p>© 2026 My Personal Story</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
