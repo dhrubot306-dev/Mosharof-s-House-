@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Mosharof's House</title>
+    <!-- Font Awesome for sleek icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        /* Base Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #1a1c29 0%, #0e1017 100%);
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Floating Background Particles */
+        .background-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Premium Glass Card */
+        .welcome-card {
+            text-align: center;
+            padding: 60px 45px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
+                        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 550px;
+            width: 90%;
+            z-index: 10;
+            position: relative;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUpFade 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .welcome-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(24, 119, 242, 0.2), 
+                        inset 0 1px 3px rgba(255, 255, 255, 0.2);
+        }
+
+        /* 3D Floating House Icon */
+        .house-icon {
+            font-size: 70px;
+            margin-bottom: 25px;
+            display: inline-block;
+            filter: drop-shadow(0 10px 15px rgba(24, 119, 242, 0.3));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Typography & Neon Gradients */
+        h1 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #8fa0dd;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #1877f2, #00f2fe, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            color: #b0b3b8;
+        }
+
+        /* Futuristic Magnetic Button */
+        .enter-btn {
+            position: relative;
+            display: inline-block;
+            padding: 16px 45px;
+            background: linear-gradient(45deg, #1877f2, #00c6ff);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(24, 119, 242, 0.4);
+            margin-bottom: 40px;
+            z-index: 2;
+        }
+
+        .enter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .enter-btn:hover::before {
+            left: 100%;
+        }
+
+        .enter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 198, 255, 0.5);
+        }
+
+        /* Elegant Social Links Footer */
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 30px;
+        }
+
+        .social-bubble {
+            color: #a0a5b5;
+            font-size: 1.4rem;
+            text-decoration: none;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Specific Brand Reactions */
+        .social-bubble.facebook:hover {
+            background: #1877f2;
+            color: #fff;
+            border-color: #1877f2;
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(24, 119, 242, 0.4);
+        }
+
+        .social-bubble.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+            color: #fff;
+            border-color: transparent;
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.4);
+        }
+
+        .social-bubble.youtube:hover {
+            background: #ff0000;
+            color: #fff;
+            border-color: #ff0000;
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);
+        }
+
+        /* Animations */
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Simple moving background elements simulated via CSS shadows -->
+    <div class="background-particles"></div>
+
+    <div class="welcome-card">
+        <div class="house-icon">🏡</div>
+        
+        <h1>Welcome To</h1>
+        <h2>Mosharof's House</h2>
+        
+        <p>Step inside a modern digital space designed with passion. Discover creative interfaces, premium aesthetics, and interactive experiences tailor-made for you.</p>
+        
+        <a href="home.html" class="enter-btn">Explore House</a>
+
+        <div class="social-container">
+            <!-- Connect your personal links here -->
+            <a href="#" target="_blank" class="social-bubble facebook" title="Connect on Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" target="_blank" class="social-bubble instagram" title="Follow on Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" target="_blank" class="social-bubble youtube" title="Subscribe on YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
